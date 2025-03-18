@@ -47,7 +47,7 @@ function initializeDataTable(data) {
     }
 
     // Initialize DataTable with the JSON data
-    $('#dataTable').DataTable({
+    const table = $('#dataTable').DataTable({
         data: data.resultData,
         columns: [
             { data: 'connectionNo' },
@@ -86,25 +86,61 @@ function initializeDataTable(data) {
         lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
         order: [[0, 'asc']], // Default sort by connection number
         initComplete: function() {
-            // Add individual column search boxes
-            this.api().columns().every(function() {
+            // Create a row for filters in the thead
+            const headerRow = $('<tr class="filters"></tr>').appendTo($('#dataTable thead'));
+            
+            // Add individual column search inputs and dropdowns
+            this.api().columns().every(function(index) {
                 const column = this;
-                const columnIndex = column.index();
                 const title = $(column.header()).text();
+                const cell = $('<th></th>').appendTo(headerRow);
                 
-                // Create input element for search
+                // Create input element for search (for all columns)
                 const input = $('<input type="text" class="form-control form-control-sm" placeholder="Search ' + title + '" />')
-                    .appendTo($(column.header()))
+                    .appendTo(cell)
+                    .on('click', function(e) {
+                        e.stopPropagation(); // Prevent sorting when clicking on the input
+                    })
                     .on('keyup change', function() {
-                        column
-                            .search(this.value)
-                            .draw();
+                        if (column.search() !== this.value) {
+                            column
+                                .search(this.value)
+                                .draw();
+                        }
                     });
+                
+                // Add dropdown filters for specific columns (Owner Name and Address)
+                if (index === 2 || index === 3) { // Owner Name or Address column
+                    const select = $('<select class="form-select form-select-sm mt-2"><option value="">All</option></select>')
+                        .appendTo(cell)
+                        .on('click', function(e) {
+                            e.stopPropagation(); // Prevent sorting when clicking on the select
+                        })
+                        .on('change', function() {
+                            const val = $.fn.dataTable.util.escapeRegex($(this).val());
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                            
+                            // Clear the text input when dropdown is used
+                            $(this).closest('th').find('input').val('');
+                        });
+                    
+                    // Populate dropdown with unique values
+                    column.data().unique().sort().each(function(d) {
+                        if (d && d.trim() !== '') {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        }
+                    });
+                }
             });
             
             // Display total number of records
             const totalRecords = data.totalRows;
             $('.card-header h5').append(` <span class="badge bg-secondary">${totalRecords.toLocaleString()} Records</span>`);
         }
+    });
+    
+    // Add custom search functionality for all columns
+    $('#dataTable_filter input').unbind().bind('keyup', function() {
+        table.search(this.value).draw();
     });
 }
