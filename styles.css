@@ -1,0 +1,112 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.card-header {
+    padding: 15px 20px;
+}
+
+.table-responsive {
+    padding: 10px;
+}
+
+#dataTable {
+    width: 100% !important;
+}
+
+#dataTable thead th {
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 40px; /* Add space for search inputs */
+}
+
+#dataTable thead th input {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    font-size: 0.8rem;
+    height: 30px;
+}
+
+#dataTable tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_length {
+    margin-bottom: 20px;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin-left: 8px;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin: 0 5px;
+}
+
+.dataTables_info, .dataTables_paginate {
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.dt-buttons {
+    margin-bottom: 15px;
+}
+
+.dt-button {
+    background-color: #f8f9fa !important;
+    border: 1px solid #ced4da !important;
+    border-radius: 4px !important;
+    padding: 6px 12px !important;
+    margin-right: 5px !important;
+    color: #212529 !important;
+}
+
+.dt-button:hover {
+    background-color: #e9ecef !important;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 10px;
+    }
+    
+    .dataTables_wrapper .dataTables_filter,
+    .dataTables_wrapper .dataTables_length {
+        text-align: left;
+        float: none;
+    }
+    
+    .dataTables_wrapper .dataTables_filter {
+        margin-top: 10px;
+    }
+}
