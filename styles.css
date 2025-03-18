@@ -25,16 +25,29 @@ body {
 #dataTable thead th {
     font-weight: 600;
     position: relative;
-    padding-bottom: 40px; /* Add space for search inputs */
 }
 
-#dataTable thead th input {
-    position: absolute;
-    bottom: 5px;
-    left: 0;
+/* Style for the filters row */
+#dataTable thead tr.filters th {
+    padding: 8px 4px;
+    font-weight: normal;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#dataTable thead tr.filters input,
+#dataTable thead tr.filters select {
     width: 100%;
-    font-size: 0.8rem;
-    height: 30px;
+    padding: 5px;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+#dataTable thead tr.filters select {
+    margin-top: 5px;
 }
 
 #dataTable tbody tr:hover {
