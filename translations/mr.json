@@ -1,0 +1,45 @@
+{
+    "title": "महाराष्ट्र पाणी बिल डेटा",
+    "subtitle": "पाणी कनेक्शन रेकॉर्ड",
+    "footer": "महाराष्ट्र पाणी बिल रेकॉर्डमधून डेटा लोड केला",
+    "columns": {
+        "connectionNo": "कनेक्शन क्र",
+        "consumerName": "ग्राहकाचे नाव",
+        "ownerName": "मालकाचे नाव",
+        "address": "पत्ता",
+        "mobileNo": "मोबाईल क्र",
+        "emailId": "ईमेल आयडी",
+        "connectionNoOld": "जुना कनेक्शन क्र",
+        "connectionId": "कनेक्शन आयडी"
+    },
+    "search": {
+        "placeholder": "{0} शोधा"
+    },
+    "filter": {
+        "all": "सर्व"
+    },
+    "table": {
+        "search": "शोधा:",
+        "lengthMenu": "_MENU_ नोंदी दाखवा",
+        "info": "_TOTAL_ पैकी _START_ ते _END_ नोंदी दाखवत आहे",
+        "infoEmpty": "0 पैकी 0 ते 0 नोंदी दाखवत आहे",
+        "infoFiltered": "(_MAX_ एकूण नोंदींमधून फिल्टर केलेले)",
+        "zeroRecords": "कोणतेही जुळणारे रेकॉर्ड सापडले नाही",
+        "paginate": {
+            "first": "प्रथम",
+            "last": "शेवटचे",
+            "next": "पुढील",
+            "previous": "मागील"
+        }
+    },
+    "buttons": {
+        "copy": "कॉपी",
+        "excel": "एक्सेल",
+        "pdf": "पीडीएफ",
+        "print": "प्रिंट"
+    },
+    "records": "नोंदी",
+    "language": "Language",
+    "english": "English",
+    "marathi": "मराठी"
+}

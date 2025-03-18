@@ -12,6 +12,24 @@ body {
 
 .card-header {
     padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-header h5 {
+    margin-bottom: 0;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-switcher button {
+    min-width: 70px;
 }
 
 .table-responsive {
@@ -107,10 +125,58 @@ body {
     height: 3rem;
 }
 
+/* GitHub Corner */
+.github-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+    0%, 100% { transform: rotate(0); }
+    20%, 60% { transform: rotate(-25deg); }
+    40%, 80% { transform: rotate(10deg); }
+}
+
+/* Footer styles */
+.footer {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 30px;
+}
+
+.social-links a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #0d6efd;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .card-body {
         padding: 10px;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .language-switcher {
+        margin-top: 10px;
     }
     
     .dataTables_wrapper .dataTables_filter,
@@ -121,5 +187,13 @@ body {
     
     .dataTables_wrapper .dataTables_filter {
         margin-top: 10px;
+    }
+    
+    .github-corner:hover .octo-arm {
+        animation: none;
+    }
+    
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
     }
 }

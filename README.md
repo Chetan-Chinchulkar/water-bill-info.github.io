@@ -51,7 +51,6 @@ To deploy this project to GitHub Pages, follow these steps:
 5. Navigate to the "Pages" section
 6. Set the source to the main branch
 7. Click "Save"
-8. Your site will be published at `https://YOUR_USERNAME.github.io/Maharashtra_Water_Bill/`
 
 ## Data Structure
 
